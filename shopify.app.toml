@@ -1,0 +1,33 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "b4bef09cf30d74afc472502aa1aaf49b"
+name = "test-app-theme-extension"
+handle = "test-app-theme-extension"
+application_url = "https://sustained-adjusted-rage-fellowship.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "quickstart-6527156f.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://sustained-adjusted-rage-fellowship.trycloudflare.com/auth/callback",
+  "https://sustained-adjusted-rage-fellowship.trycloudflare.com/auth/shopify/callback",
+  "https://sustained-adjusted-rage-fellowship.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-07"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks"
+
+[pos]
+embedded = false
